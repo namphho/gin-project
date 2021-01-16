@@ -39,14 +39,6 @@ func main() {
 	fmt.Println(notes)
 
 	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"user": Login{
-				"Hnam", "12345678",
-			},
-		})
-	})
-
 	v1 := r.Group("/v1")
 	notesApis := v1.Group("/notes")
 	{
