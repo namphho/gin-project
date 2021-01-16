@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
+	"net/http"
 	"os"
 )
 
@@ -36,52 +38,35 @@ func main() {
 
 	fmt.Println(notes)
 
-	//r := gin.Default()
-	//r.GET("/ping", func(c *gin.Context) {
-	//	c.JSON(http.StatusOK, gin.H{
-	//		"user": Login{
-	//			"Hnam", "12345678",
-	//		},
-	//	})
-	//})
-	//
-	//v1 := r.Group("/v1")
-	//notes := v1.Group("/notes")
-	//{
-	//	notes.GET("")
-	//	notes.GET("/:note-id")
-	//	notes.PUT("/:note-id")
-	//	notes.DELETE("/:note-id")
-	//	notes.POST("/login", func(c *gin.Context) {
-	//		var json Login
-	//		if err := c.ShouldBindJSON(&json); err != nil {
-	//			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-	//			return
-	//		}
-	//		c.JSON(http.StatusOK, gin.H{
-	//			"user": Login{
-	//				json.User + "-resp", json.Password,
-	//			},
-	//		})
-	//	})
-	//}
-	//
-	//v1.GET("/welcome", func(c *gin.Context) {
-	//	firstname := c.DefaultQuery("firstname", "Guest")
-	//	lastname := c.Query("lastname")
-	//	age, _ := strconv.Atoi(c.Query("age")) // shortcut for c.Request.URL.Query().Get("lastname")
-	//
-	//	//c.String(http.StatusOK, "Hello %s %s %d", firstname, lastname, age)
-	//	c.JSON(http.StatusOK, gin.H{
-	//		"data": Info{
-	//			FirstName: firstname,
-	//			LastName:  lastname,
-	//			Age:       age,
-	//		},
-	//	})
-	//})
-	//
-	//_ = r.Run()
+	r := gin.Default()
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"user": Login{
+				"Hnam", "12345678",
+			},
+		})
+	})
+
+	v1 := r.Group("/v1")
+	notesApis := v1.Group("/notes")
+	{
+		notesApis.GET("", func(context *gin.Context) {
+			var notes []Note
+			db.Find(&notes)
+			context.JSON(http.StatusOK, notes)
+		})
+		notesApis.POST("/create", func(context *gin.Context) {
+			var note Note
+			if err := context.ShouldBindJSON(&note); err != nil {
+				context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+				return
+			}
+			db.Create(&note)
+			context.JSON(http.StatusOK, note)
+		})
+
+	}
+	_ = r.Run()
 }
 
 type Info struct {
