@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"gin-project/module/notes/business"
+	"gin-project/module/notes/model"
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -15,11 +17,15 @@ type Login struct {
 	Password string `form:"password" json:"password" binding:"required"`
 }
 
-type Note struct {
-	Id      int    `json:"id"`
-	Title   string `json:"title" gorm:"column:title;"`
-	Status  int    `json:"status" gorm:"column:status;"`
-	Content string `json:"content" gorm:"column:content;"`
+type FakeStore struct{}
+
+func (FakeStore) ListNote() ([]model.Note, error) {
+	return []model.Note{
+		model.Note{
+			Title:   "title test",
+			Content: "content test",
+		},
+	}, nil
 }
 
 func main() {
@@ -33,22 +39,19 @@ func main() {
 
 	fmt.Println("open DB success")
 
-	var notes []Note
-	db.Where("id = 2").Find(&notes)
-
-	fmt.Println(notes)
-
 	r := gin.Default()
 	v1 := r.Group("/v1")
 	notesApis := v1.Group("/notes")
 	{
 		notesApis.GET("", func(context *gin.Context) {
-			var notes []Note
-			db.Find(&notes)
+			//mysqlStorage := storage.NewInstance(db)
+			listNoteUseCase := business.NewInstance(FakeStore{})
+			notes, _ := listNoteUseCase.GetAllNotes()
+
 			context.JSON(http.StatusOK, notes)
 		})
 		notesApis.POST("/create", func(context *gin.Context) {
-			var note Note
+			var note model.Note
 			if err := context.ShouldBindJSON(&note); err != nil {
 				context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 				return
