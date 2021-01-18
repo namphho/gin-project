@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	"gin-project/module/appctx"
 	"gin-project/module/notes/business"
 	"gin-project/module/notes/model"
 	"gin-project/module/notes/storage"
+	"gin-project/module/notes/transport"
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -38,6 +40,7 @@ func main() {
 		log.Fatalln(err.Error())
 	}
 	db = db.Debug()
+	appCtx := appctx.NewInstance(db)
 
 	fmt.Println("open DB success")
 
@@ -45,22 +48,8 @@ func main() {
 	v1 := r.Group("/v1")
 	notesApis := v1.Group("/notes")
 	{
-		notesApis.GET("", func(context *gin.Context) {
-			mysqlStorage := storage.NewInstance(db)
-			listNoteUseCase := business.NewInstance(mysqlStorage)
-			notes, _ := listNoteUseCase.GetAllNotes()
-
-			context.JSON(http.StatusOK, notes)
-		})
-		notesApis.POST("/create", func(context *gin.Context) {
-			var note model.Note
-			if err := context.ShouldBindJSON(&note); err != nil {
-				context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-				return
-			}
-			db.Create(&note)
-			context.JSON(http.StatusOK, note)
-		})
+		notesApis.GET("", transport.GetNotes(appCtx))
+		notesApis.POST("/create", transport.CreateNote(appCtx))
 
 		notesApis.DELETE("/:note-id", func(ctx *gin.Context) {
 			idString := ctx.Param("note-id")
