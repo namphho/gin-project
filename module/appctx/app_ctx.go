@@ -15,5 +15,5 @@ func NewInstance(db *gorm.DB) *appContext {
 }
 
 func (appCtx *appContext) GetDBConnection() *gorm.DB {
-	return appCtx.db
+	return appCtx.db.Session(&gorm.Session{NewDB: true})
 }
