@@ -1,8 +1,9 @@
 package storage
 
-import "fmt"
-
-//define methods of storage
-func (store *storageMySql) DeleteNote() {
-	fmt.Println("abc")
+func (store *storageMySql) DeleteNote(id int) error {
+	db := store.Db
+	if err := db.Table("notes").Where("id = ?", id).Update("status", 0).Error; err != nil {
+		return err
+	}
+	return nil
 }

@@ -4,12 +4,14 @@ import (
 	"fmt"
 	"gin-project/module/notes/business"
 	"gin-project/module/notes/model"
+	"gin-project/module/notes/storage"
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 )
 
 type Login struct {
@@ -44,8 +46,8 @@ func main() {
 	notesApis := v1.Group("/notes")
 	{
 		notesApis.GET("", func(context *gin.Context) {
-			//mysqlStorage := storage.NewInstance(db)
-			listNoteUseCase := business.NewInstance(FakeStore{})
+			mysqlStorage := storage.NewInstance(db)
+			listNoteUseCase := business.NewInstance(mysqlStorage)
 			notes, _ := listNoteUseCase.GetAllNotes()
 
 			context.JSON(http.StatusOK, notes)
@@ -58,6 +60,19 @@ func main() {
 			}
 			db.Create(&note)
 			context.JSON(http.StatusOK, note)
+		})
+
+		notesApis.DELETE("/:note-id", func(ctx *gin.Context) {
+			idString := ctx.Param("note-id")
+			id, _ := strconv.Atoi(idString)
+
+			mysqlStorage := storage.NewInstance(db)
+			useCase := business.NewInstanceDeleteUseCase(mysqlStorage)
+			if err := useCase.DeleteNote(id); err != nil {
+				ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+				return
+			}
+			ctx.JSON(http.StatusOK, gin.H{"data": "okay"})
 		})
 
 	}
