@@ -6,3 +6,7 @@ type Note struct {
 	Status  int    `json:"status" gorm:"column:status;"`
 	Content string `json:"content" gorm:"column:content;"`
 }
+
+func (n Note) TableName() string {
+	return "notes"
+}

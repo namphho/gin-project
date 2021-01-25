@@ -1,11 +1,12 @@
 package business
 
 import (
+	"gin-project/module/common"
 	"gin-project/module/notes/model"
 )
 
 type NoteStorage interface {
-	ListNote() ([]model.Note, error)
+	ListNote(paging *common.Paging) ([]model.Note, error)
 }
 
 type NoteStorageFake interface {
@@ -21,6 +22,6 @@ func NewInstance(storage NoteStorage) *ListNoteUseCase {
 	return &ListNoteUseCase{storage}
 }
 
-func (useCase *ListNoteUseCase) GetAllNotes() ([]model.Note, error) {
-	return useCase.store.ListNote()
+func (useCase *ListNoteUseCase) GetAllNotes(paging *common.Paging) ([]model.Note, error) {
+	return useCase.store.ListNote(paging)
 }
