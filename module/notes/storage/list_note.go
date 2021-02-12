@@ -14,18 +14,18 @@ func (store *storageMySql) ListNote(filter *model.Filter, paging *common.Paging)
 
 	if v := filter; v != nil {
 		if v.CategoryId > 0 {
-			db.Where("category_id = ?", v.CategoryId)
+			db.Where("categor_id = ?", v.CategoryId)
 		}
 	}
 
 	if err := db.Count(&paging.Total).Error; err != nil {
-		return nil, err
+		return nil, common.ErrDB(err)
 	}
 	db.Limit(paging.Limit)
 	db.Offset((paging.Page - 1) * paging.Limit)
 
 	if err := db.Find(&notes).Error; err != nil {
-		return nil, err
+		return nil, common.ErrDB(err)
 	}
 
 	return notes, nil

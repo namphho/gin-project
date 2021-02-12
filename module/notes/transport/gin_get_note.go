@@ -29,7 +29,8 @@ func GetNotes(appCtx appctx.AppContext) func(ctx *gin.Context) {
 		notes, err := listNoteUseCase.GetAllNotes(&filter, &paging)
 
 		if err != nil {
-			ctx.JSON(http.StatusBadRequest, gin.H{"err": err.Error()})
+			ctx.JSON(http.StatusBadRequest, err)
+			return
 		}
 
 		ctx.JSON(http.StatusOK, common.NewSuccessResponse(notes, paging, filter))

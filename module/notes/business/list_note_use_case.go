@@ -23,5 +23,9 @@ func NewInstance(storage NoteStorage) *ListNoteUseCase {
 }
 
 func (useCase *ListNoteUseCase) GetAllNotes(filter *model.Filter, paging *common.Paging) ([]model.Note, error) {
-	return useCase.store.ListNote(filter, paging)
+	data, err := useCase.store.ListNote(filter, paging)
+	if err != nil {
+		return nil, common.ErrCannotListEntity("notes", err)
+	}
+	return data, nil
 }
