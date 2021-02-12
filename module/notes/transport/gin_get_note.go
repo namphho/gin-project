@@ -21,8 +21,8 @@ func GetNotes(appCtx appctx.AppContext) func(ctx *gin.Context) {
 		paging.Fulfill()
 
 		db := appCtx.GetDBConnection()
-		mysqlStorage := storage.NewInstance(db)
-		listNoteUseCase := business.NewInstance(mysqlStorage)
+		noteStorage := storage.NewInstance(db)
+		listNoteUseCase := business.NewInstance(noteStorage)
 
 		//create paging model
 
