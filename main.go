@@ -3,17 +3,13 @@ package main
 import (
 	"fmt"
 	"gin-project/module/appctx"
-	"gin-project/module/notes/business"
 	"gin-project/module/notes/model"
-	"gin-project/module/notes/storage"
 	"gin-project/module/notes/transport"
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
-	"net/http"
 	"os"
-	"strconv"
 )
 
 type Login struct {
@@ -50,19 +46,7 @@ func main() {
 	{
 		notesApis.GET("", transport.GetNotes(appCtx))
 		notesApis.POST("/create", transport.CreateNote(appCtx))
-
-		notesApis.DELETE("/:note-id", func(ctx *gin.Context) {
-			idString := ctx.Param("note-id")
-			id, _ := strconv.Atoi(idString)
-
-			mysqlStorage := storage.NewInstance(db)
-			useCase := business.NewInstanceDeleteUseCase(mysqlStorage)
-			if err := useCase.DeleteNote(id); err != nil {
-				ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-				return
-			}
-			ctx.JSON(http.StatusOK, gin.H{"data": "okay"})
-		})
+		notesApis.DELETE("/:note-id", transport.DeleteNote(appCtx))
 
 	}
 	_ = r.Run()

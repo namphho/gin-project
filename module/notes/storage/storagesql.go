@@ -7,6 +7,6 @@ type storageMySql struct {
 	Db *gorm.DB
 }
 
-func NewInstance(db *gorm.DB) *storageMySql {
+func NewMySqlStorageInstance(db *gorm.DB) *storageMySql {
 	return &storageMySql{db}
 }
