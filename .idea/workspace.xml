@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/module/middleware/recover.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/business/list_note_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/business/list_note_use_case.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/notes/storage/list_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/storage/list_note.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_get_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_get_note.go" afterDir="false" />
     </list>
@@ -63,5 +64,16 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/module/middleware/recover.go</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

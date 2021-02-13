@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"gin-project/module/appctx"
+	"gin-project/module/middleware"
 	"gin-project/module/notes/model"
 	"gin-project/module/notes/transport"
 	"github.com/gin-gonic/gin"
@@ -41,6 +42,8 @@ func main() {
 	fmt.Println("open DB success")
 
 	r := gin.Default()
+	r.Use(middleware.Recover(appCtx))
+
 	v1 := r.Group("/v1")
 	notesApis := v1.Group("/notes")
 	{
