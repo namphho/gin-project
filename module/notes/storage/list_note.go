@@ -14,7 +14,7 @@ func (store *storageMySql) ListNote(filter *model.Filter, paging *common.Paging)
 
 	if v := filter; v != nil {
 		if v.CategoryId > 0 {
-			db.Where("categor_id = ?", v.CategoryId)
+			db.Where("category_id = ?", v.CategoryId)
 		}
 	}
 

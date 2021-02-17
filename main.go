@@ -3,9 +3,7 @@ package main
 import (
 	"fmt"
 	"gin-project/module/appctx"
-	"gin-project/module/middleware"
 	"gin-project/module/notes/model"
-	"gin-project/module/notes/transport"
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -42,16 +40,8 @@ func main() {
 	fmt.Println("open DB success")
 
 	r := gin.Default()
-	r.Use(middleware.Recover(appCtx))
+	setUpRouter(r, appCtx)
 
-	v1 := r.Group("/v1")
-	notesApis := v1.Group("/notes")
-	{
-		notesApis.GET("", transport.GetNotes(appCtx))
-		notesApis.POST("/create", transport.CreateNote(appCtx))
-		notesApis.DELETE("/:note-id", transport.DeleteNote(appCtx))
-
-	}
 	_ = r.Run()
 }
 
