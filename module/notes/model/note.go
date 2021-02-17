@@ -10,3 +10,7 @@ type Note struct {
 func (n Note) TableName() string {
 	return "notes"
 }
+
+func (n Note) EntityName() string {
+	return n.TableName()
+}

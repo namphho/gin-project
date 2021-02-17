@@ -2,20 +2,30 @@ package transport
 
 import (
 	"gin-project/module/appctx"
+	"gin-project/module/common"
+	"gin-project/module/notes/business"
 	"gin-project/module/notes/model"
+	"gin-project/module/notes/storage"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
 func CreateNote(appCtx appctx.AppContext) func(ctx *gin.Context) {
 	return func(ctx *gin.Context) {
-		db := appCtx.GetDBConnection()
-		var note model.Note
-		if err := ctx.ShouldBindJSON(&note); err != nil {
-			ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-			return
+		var data model.NoteCreate
+		if err := ctx.ShouldBind(&data); err != nil {
+			panic(common.ErrInvalidRequest(err))
 		}
-		db.Create(&note)
-		ctx.JSON(http.StatusOK, note)
+
+		db := appCtx.GetDBConnection()
+		noteStorage := storage.NewMySqlStorageInstance(db)
+		useCase := business.NewInstanceCreateNoteUseCase(noteStorage)
+
+		err := useCase.CreateNote(&data)
+
+		if err != nil {
+			panic(err)
+		}
+		ctx.JSON(http.StatusOK, gin.H{"id": data.Id})
 	}
 }
