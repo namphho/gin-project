@@ -16,5 +16,6 @@ func setUpRouter(r *gin.Engine, appCtx appctx.AppContext){
 		notesApis.GET("", transport.GetNotes(appCtx))
 		notesApis.POST("/create", transport.CreateNote(appCtx))
 		notesApis.DELETE("/:note-id", transport.DeleteNote(appCtx))
+		notesApis.PUT("/:note-id", transport.UpdateNote(appCtx))
 	}
 }
