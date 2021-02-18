@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/module/notes/business/get_note_use_case.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/notes/transport/gin_get_note_by_id.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/common/image.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/common/object_db_type.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/common/sql_model.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/common/uid.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/model/note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/model/note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/model/note_create.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/model/note_create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/model/note_update.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/model/note_update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_create_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_create_note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_delete_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_delete_note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_get_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_get_note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_get_note_by_id.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_get_note_by_id.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_update_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_update_note.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +59,9 @@
       <recent name="$PROJECT_DIR$/module/notes/business" />
       <recent name="$PROJECT_DIR$/module/notes/model" />
       <recent name="$PROJECT_DIR$/module/notes/storage" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/module/common" />
     </key>
   </component>
   <component name="RunManager">

@@ -1,10 +1,13 @@
 package model
 
+import "gin-project/module/common"
+
 type Note struct {
-	Id      int    `json:"id"`
-	Title   string `json:"title" gorm:"column:title;"`
-	Status  int    `json:"status" gorm:"column:status;"`
-	Content string `json:"content" gorm:"column:content;"`
+	common.SQLModel `json:",inline"`
+	Title           string         `json:"title" gorm:"column:title;"`
+	Content         string         `json:"content" gorm:"column:content;"`
+	Cover           *common.Image  `json:"cover" gorm:"column:cover;"`
+	Photos          *common.Images `json:"photos" gorm:"column:photos;"`
 }
 
 func (n Note) TableName() string {

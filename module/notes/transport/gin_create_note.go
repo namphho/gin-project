@@ -26,6 +26,7 @@ func CreateNote(appCtx appctx.AppContext) func(ctx *gin.Context) {
 		if err != nil {
 			panic(err)
 		}
-		ctx.JSON(http.StatusOK, gin.H{"id": data.Id})
+		data.GenUID(common.DBTypeNote, common.ShardId)
+		ctx.JSON(http.StatusOK, common.SimpleSuccessResponse(data))
 	}
 }

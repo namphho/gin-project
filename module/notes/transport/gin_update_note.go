@@ -8,13 +8,12 @@ import (
 	"gin-project/module/notes/storage"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"strconv"
 )
 
 func UpdateNote(appCtx appctx.AppContext) func(ctx *gin.Context) {
 	return func(ctx *gin.Context) {
 		idString := ctx.Param("note-id")
-		noteId, err := strconv.Atoi(idString)
+		uid, err := common.FromBase58(idString)
 
 		if err != nil {
 			panic(common.ErrInvalidRequest(err))
@@ -29,9 +28,9 @@ func UpdateNote(appCtx appctx.AppContext) func(ctx *gin.Context) {
 		noteStorage := storage.NewMySqlStorageInstance(db)
 		updateNoteUseCase := business.NewInstanceUpdateNoteUseCase(noteStorage)
 
-		if err := updateNoteUseCase.UpdateNoteById(noteId, &data); err != nil {
+		if err := updateNoteUseCase.UpdateNoteById(int(uid.GetLocalID()), &data); err != nil {
 			panic(err)
 		}
-		ctx.JSON(http.StatusOK, gin.H{"note-id": noteId})
+		ctx.JSON(http.StatusOK, gin.H{"note-id": idString})
 	}
 }
