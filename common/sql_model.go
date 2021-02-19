@@ -18,9 +18,9 @@ func (model *SQLModel) GenUID(objectType int, shardId uint32)  {
 }
 
 type SQLModelCreate struct {
-	Id        int        `json:"-" gorm:"column:id;"`
-	FakeId    *UID       `json:"id" gorm:"-"`
-	Status    int        `json:"status" gorm:"column:status;default:1"`
+	Id        int  `json:"-" gorm:"column:id;"`
+	FakeId    *UID `json:"id" gorm:"-"`
+	Status    int  `json:"status" gorm:"column:status;default:1"`
 }
 
 func (model *SQLModelCreate) GenUID(objectType int, shardId uint32) {

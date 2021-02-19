@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"gin-project/module/appctx"
+	"gin-project/appctx"
 	"gin-project/module/notes/model"
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/mysql"

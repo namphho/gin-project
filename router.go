@@ -1,13 +1,13 @@
 package main
 
 import (
-	"gin-project/module/appctx"
-	"gin-project/module/middleware"
+	"gin-project/appctx"
+	"gin-project/middleware"
 	"gin-project/module/notes/transport"
 	"github.com/gin-gonic/gin"
 )
 
-func setUpRouter(r *gin.Engine, appCtx appctx.AppContext){
+func setUpRouter(r *gin.Engine, appCtx appctx.AppContext) {
 	r.Use(middleware.Recover(appCtx))
 
 	v1 := r.Group("/v1")

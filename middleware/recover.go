@@ -3,12 +3,12 @@ package middleware
 import (
 	"errors"
 	"fmt"
-	"gin-project/module/appctx"
-	"gin-project/module/common"
+	"gin-project/appctx"
+	"gin-project/common"
 	"github.com/gin-gonic/gin"
 )
 
-func Recover(ctx appctx.AppContext) gin.HandlerFunc{
+func Recover(ctx appctx.AppContext) gin.HandlerFunc {
 	return func(context *gin.Context) {
 		defer func() {
 			if err := recover(); err != nil {

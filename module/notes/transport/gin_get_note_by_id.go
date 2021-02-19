@@ -1,8 +1,8 @@
 package transport
 
 import (
-	"gin-project/module/appctx"
-	"gin-project/module/common"
+	"gin-project/appctx"
+	"gin-project/common"
 	"gin-project/module/notes/business"
 	"gin-project/module/notes/storage"
 	"github.com/gin-gonic/gin"

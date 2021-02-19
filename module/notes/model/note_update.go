@@ -1,6 +1,6 @@
 package model
 
-import "gin-project/module/common"
+import "gin-project/common"
 
 type NoteUpdate struct {
 	Title   *string        `json:"title" gorm:"column:title;"`

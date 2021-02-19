@@ -1,6 +1,6 @@
 package model
 
-import "gin-project/module/common"
+import "gin-project/common"
 
 type Note struct {
 	common.SQLModel `json:",inline"`

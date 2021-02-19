@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"gin-project/module/common"
+	"gin-project/common"
 	"gin-project/module/notes/model"
 )
 
