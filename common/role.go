@@ -9,11 +9,20 @@ const (
 	RoleUser Role= "user"
 )
 
-func (e *Role) Scan(value interface{}) error {
-	*e = Role(value.([]byte))
+func (r *Role) Scan(value interface{}) error {
+	*r = Role(value.([]byte))
 	return nil
 }
 
-func (e Role) Value() (driver.Value, error) {
-	return string(e), nil
+func (r Role) Value() (driver.Value, error) {
+	return string(r), nil
+}
+
+func (r *Role) String() string{
+	role := *r
+	if role == RoleAdmin {
+		return "admin"
+	} else {
+		return "user"
+	}
 }

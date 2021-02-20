@@ -14,6 +14,7 @@ func setUpRouter(r *gin.Engine, appCtx appctx.AppContext) {
 	v1 := r.Group("/v1")
 
 	v1.POST("/register", usertransport.RegisterUser(appCtx))
+	v1.POST("/login", usertransport.LoginUser(appCtx))
 
 	notesApis := v1.Group("/notes")
 	{

@@ -2,22 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/appctx/hasher/md5.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/random_string.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/role.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/user/userbusiness/register.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/user/usermodel/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/user/usermodel/user_create.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/user/userstorage/create.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/user/userstorage/find.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/user/userstorage/store.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/user/usertransport/gin_login_user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/user/usertransport/gin_register_user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appctx/tokenprovider/jwt/jwt.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appctx/tokenprovider/provider.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appctx/tokenprovider/token.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/user/userbusiness/login.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/user/usermodel/user_login.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/object_db_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/object_db_type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/storage/list_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/storage/list_note.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/storage/storagesql.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/storage/storagesql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_get_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_get_note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appctx/app_ctx.go" beforeDir="false" afterPath="$PROJECT_DIR$/appctx/app_ctx.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/role.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/role.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/user/usertransport/gin_login_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/user/usertransport/gin_login_user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/router.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,6 +71,7 @@
       <go_parameters value="-i" />
       <envs>
         <env name="DB_CONNECTION_STRING" value="hnam:12345678@tcp(127.0.0.1:3307)/HNAM_DB?charset=utf8mb4&amp;parseTime=True&amp;loc=Local" />
+        <env name="SECRET_KEY" value="ABC_HNAM" />
       </envs>
       <kind value="DIRECTORY" />
       <filePath value="$PROJECT_DIR$/../gin-project|$PROJECT_DIR$" />
