@@ -2,7 +2,7 @@ package storage
 
 import "gorm.io/gorm"
 
-//define storage sql
+//define userstorage sql
 type storageMySql struct {
 	Db *gorm.DB
 }

@@ -5,7 +5,7 @@ import (
 	"gin-project/module/notes/model"
 )
 
-//define methods of storage
+//define methods of userstorage
 func (store *storageMySql) ListNote(filter *model.Filter, paging *common.Paging) ([]model.Note, error) {
 	db := store.Db
 	var notes []model.Note

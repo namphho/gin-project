@@ -2,29 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/appctx/hasher/md5.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/random_string.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/role.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/user/userbusiness/register.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/user/usermodel/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/user/usermodel/user_create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/user/userstorage/create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/user/userstorage/find.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/user/userstorage/store.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/user/usertransport/gin_login_user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/user/usertransport/gin_register_user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/appctx/app_ctx.go" beforeDir="false" afterPath="$PROJECT_DIR$/appctx/app_ctx.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/common/error.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/error.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/common/image.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/image.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/common/object_db_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/object_db_type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/common/paging.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/paging.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/common/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/common/sql_model.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/sql_model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/common/uid.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/uid.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/middleware/recover.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/recover.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/business/create_note_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/business/create_note_use_case.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/business/list_note_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/business/list_note_use_case.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/business/update_note_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/business/update_note_use_case.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/model/note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/model/note.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/model/note_create.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/model/note_create.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/model/note_update.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/model/note_update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/object_db_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/object_db_type.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/notes/storage/list_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/storage/list_note.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_create_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_create_note.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_delete_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_delete_note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/storage/storagesql.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/storage/storagesql.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_get_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_get_note.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_get_note_by_id.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_get_note_by_id.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_update_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_update_note.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/router.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,12 +57,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/module/notes/transport" />
       <recent name="$PROJECT_DIR$/module/notes/business" />
       <recent name="$PROJECT_DIR$/module/notes/model" />
       <recent name="$PROJECT_DIR$/module/notes/storage" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/module/common" />
     </key>
   </component>

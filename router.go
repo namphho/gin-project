@@ -4,6 +4,7 @@ import (
 	"gin-project/appctx"
 	"gin-project/middleware"
 	"gin-project/module/notes/transport"
+	"gin-project/module/user/usertransport"
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,6 +12,9 @@ func setUpRouter(r *gin.Engine, appCtx appctx.AppContext) {
 	r.Use(middleware.Recover(appCtx))
 
 	v1 := r.Group("/v1")
+
+	v1.POST("/register", usertransport.RegisterUser(appCtx))
+
 	notesApis := v1.Group("/notes")
 	{
 		notesApis.GET("", transport.GetNotes(appCtx))

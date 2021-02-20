@@ -29,7 +29,7 @@ func GetNotes(appCtx appctx.AppContext) func(ctx *gin.Context) {
 		noteStorage := storage.NewMySqlStorageInstance(db)
 		listNoteUseCase := business.NewInstance(noteStorage)
 
-		//create paging model
+		//create paging usermodel
 
 		notes, err := listNoteUseCase.GetAllNotes(&filter, &paging)
 
