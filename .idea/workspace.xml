@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/module/user/usertransport/gin_get_profile.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/user/usermodel/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/user/usermodel/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/business/create_note_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/business/create_note_use_case.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/model/note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/model/note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/model/note_create.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/model/note_create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_create_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_create_note.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +89,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/module/notes/business/create_note_use_case.go</url>
-          <line>20</line>
+          <line>22</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

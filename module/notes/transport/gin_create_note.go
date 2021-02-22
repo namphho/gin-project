@@ -19,7 +19,8 @@ func CreateNote(appCtx appctx.AppContext) func(ctx *gin.Context) {
 
 		db := appCtx.GetDBConnection()
 		noteStorage := storage.NewMySqlStorageInstance(db)
-		useCase := business.NewInstanceCreateNoteUseCase(noteStorage)
+		requester := ctx.MustGet(common.CurrentUser).(common.Requester)
+		useCase := business.NewInstanceCreateNoteUseCase(noteStorage, requester)
 
 		err := useCase.CreateNote(&data)
 
