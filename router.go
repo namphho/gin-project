@@ -16,7 +16,7 @@ func setUpRouter(r *gin.Engine, appCtx appctx.AppContext) {
 	v1.POST("/register", usertransport.RegisterUser(appCtx))
 	v1.POST("/login", usertransport.LoginUser(appCtx))
 
-	notesApis := v1.Group("/notes")
+	notesApis := v1.Group("/notes", middleware.RequiredAuth(appCtx))
 	{
 		notesApis.GET("", transport.GetNotes(appCtx))
 		notesApis.GET("/:note-id", transport.GetNoteById(appCtx))

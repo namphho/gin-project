@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/appctx/tokenprovider/jwt/jwt.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appctx/tokenprovider/provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appctx/tokenprovider/token.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/user/userbusiness/login.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/user/usermodel/user_login.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/const.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/authorize.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appctx/app_ctx.go" beforeDir="false" afterPath="$PROJECT_DIR$/appctx/app_ctx.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/role.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/role.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/user/usertransport/gin_login_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/user/usertransport/gin_login_user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/error.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/error.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/router.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,6 +91,21 @@
           <url>file://$PROJECT_DIR$/module/notes/business/create_note_use_case.go</url>
           <line>20</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/middleware/authorize.go</url>
+          <line>44</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/middleware/authorize.go</url>
+          <line>40</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/middleware/authorize.go</url>
+          <line>27</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
