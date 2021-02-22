@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/business/create_note_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/business/create_note_use_case.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/model/note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/model/note.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/model/note_create.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/model/note_create.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_create_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_create_note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/const.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/const.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/business/delete_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/business/delete_use_case.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_delete_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_delete_note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/user/usermodel/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/user/usermodel/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

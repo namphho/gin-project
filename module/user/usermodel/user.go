@@ -34,8 +34,8 @@ func (u *User) GetEmail() string {
 	return u.Email
 }
 
-func (u *User) GetRole() string {
-	return u.Role.String()
+func (u *User) GetRole() common.Role {
+	return u.Role
 }
 
 var (

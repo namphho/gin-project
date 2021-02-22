@@ -11,5 +11,5 @@ type Masker interface {
 type Requester interface {
 	GetUserId() int
 	GetEmail() string
-	GetRole() string
+	GetRole() Role
 }

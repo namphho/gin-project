@@ -21,7 +21,9 @@ func DeleteNote(appCtx appctx.AppContext) func(ctx *gin.Context) {
 
 		db := appCtx.GetDBConnection()
 		mysqlStorage := storage.NewMySqlStorageInstance(db)
-		useCase := business.NewInstanceDeleteUseCase(mysqlStorage)
+		request := ctx.MustGet(common.CurrentUser).(common.Requester)
+		useCase := business.NewInstanceDeleteUseCase(mysqlStorage, request)
+
 		if err := useCase.DeleteNote(int(uid.GetLocalID())); err != nil {
 			panic(common.ErrCannotDeleteEntity(model.Note{}.TableName(), err))
 		}
