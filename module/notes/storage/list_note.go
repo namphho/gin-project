@@ -6,7 +6,7 @@ import (
 )
 
 //define methods of userstorage
-func (store *storageMySql) ListNote(filter *model.Filter, paging *common.Paging) ([]model.Note, error) {
+func (store *storageMySql) ListNote(filter *model.Filter, paging *common.Paging, moreKeys ...string) ([]model.Note, error) {
 	db := store.Db
 	var notes []model.Note
 
@@ -22,9 +22,14 @@ func (store *storageMySql) ListNote(filter *model.Filter, paging *common.Paging)
 		return nil, common.ErrDB(err)
 	}
 	db.Limit(paging.Limit)
+
+	for _, k := range moreKeys {
+		db = db.Preload(k)
+	}
+
 	db.Offset((paging.Page - 1) * paging.Limit)
 
-	if err := db.Find(&notes).Error; err != nil {
+	if err := db.Order("id desc").Find(&notes).Error; err != nil {
 		return nil, common.ErrDB(err)
 	}
 

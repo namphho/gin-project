@@ -6,7 +6,7 @@ import (
 )
 
 type IGetNoteUseCase interface {
-	FindNote(id int) (*model.Note, error)
+	FindNoteWithKeys(id int, moreKeys ...string) (*model.Note, error)
 }
 
 type GetNoteUseCase struct {
@@ -19,7 +19,7 @@ func NewInstanceGetNoteUseCase(useCase IGetNoteUseCase) *GetNoteUseCase {
 
 func (impl *GetNoteUseCase) GetNote(noteId int) (*model.Note, error) {
 	//find note
-	note, err := impl.usecase.FindNote(noteId)
+	note, err := impl.usecase.FindNoteWithKeys(noteId, "User")
 
 	if err != nil {
 		return nil, errors.New("note not found")

@@ -4,11 +4,12 @@ import "gin-project/common"
 
 type Note struct {
 	common.SQLModel `json:",inline"`
-	UserId          int            `json:"-" gorm:"column:user_id;"`
-	Title           string         `json:"title" gorm:"column:title;"`
-	Content         string         `json:"content" gorm:"column:content;"`
-	Cover           *common.Image  `json:"cover" gorm:"column:cover;"`
-	Photos          *common.Images `json:"photos" gorm:"column:photos;"`
+	UserId          int                `json:"-" gorm:"column:user_id;"`
+	User            *common.SimpleUser `json:"owner" gorm:"foreignKey:Id;references:UserId;"`
+	Title           string             `json:"title" gorm:"column:title;"`
+	Content         string             `json:"content" gorm:"column:content;"`
+	Cover           *common.Image      `json:"cover" gorm:"column:cover;"`
+	Photos          *common.Images     `json:"photos" gorm:"column:photos;"`
 }
 
 func (n Note) TableName() string {
@@ -17,4 +18,12 @@ func (n Note) TableName() string {
 
 func (n Note) EntityName() string {
 	return n.TableName()
+}
+
+func (n *Note) Mask(isAdmin bool) {
+	n.GenUID(common.DBTypeNote, common.ShardId)
+
+	if n.User != nil {
+		n.User.GenUID(common.DBTypeUser, common.ShardId)
+	}
 }

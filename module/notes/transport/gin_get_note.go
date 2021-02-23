@@ -38,7 +38,7 @@ func GetNotes(appCtx appctx.AppContext) func(ctx *gin.Context) {
 		}
 
 		for i := range notes {
-			notes[i].GenUID(common.DBTypeNote, common.ShardId)
+			notes[i].Mask(false)
 		}
 
 		ctx.JSON(http.StatusOK, common.NewSuccessResponse(notes, paging, filter))

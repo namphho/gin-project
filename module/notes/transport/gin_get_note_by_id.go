@@ -26,7 +26,7 @@ func GetNoteById(appCtx appctx.AppContext) func(ctx *gin.Context) {
 		if err != nil {
 			panic(err)
 		}
-		note.GenUID(common.DBTypeNote, common.ShardId)
+		note.Mask(false)
 		ctx.JSON(http.StatusOK, common.SimpleSuccessResponse(note))
 	}
 }

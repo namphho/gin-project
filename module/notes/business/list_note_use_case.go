@@ -6,7 +6,7 @@ import (
 )
 
 type NoteStorage interface {
-	ListNote(filter *model.Filter, paging *common.Paging) ([]model.Note, error)
+	ListNote(filter *model.Filter, paging *common.Paging, moreKeys ...string) ([]model.Note, error)
 }
 
 type NoteStorageFake interface {
@@ -23,7 +23,7 @@ func NewInstance(storage NoteStorage) *ListNoteUseCase {
 }
 
 func (useCase *ListNoteUseCase) GetAllNotes(filter *model.Filter, paging *common.Paging) ([]model.Note, error) {
-	data, err := useCase.store.ListNote(filter, paging)
+	data, err := useCase.store.ListNote(filter, paging, "User")
 	if err != nil {
 		return nil, common.ErrCannotListEntity("notes", err)
 	}

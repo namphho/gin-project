@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/common/simple_user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/notes/storage/find_note_with_keys.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/const.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/const.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/business/delete_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/business/delete_use_case.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_delete_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_delete_note.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/user/usermodel/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/user/usermodel/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/business/get_note_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/business/get_note_use_case.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/business/list_note_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/business/list_note_use_case.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/model/note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/model/note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/storage/list_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/storage/list_note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_get_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_get_note.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_get_note_by_id.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_get_note_by_id.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +45,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/module/notes/storage" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -91,6 +95,11 @@
           <url>file://$PROJECT_DIR$/module/notes/business/create_note_use_case.go</url>
           <line>22</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/module/notes/model/note.go</url>
+          <line>25</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
