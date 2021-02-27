@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/simple_user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/notes/storage/find_note_with_keys.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/upload/uploadmodel/upload.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/upload/uploadtransport/gin_upload.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/business/get_note_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/business/get_note_use_case.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/business/list_note_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/business/list_note_use_case.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/model/note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/model/note.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/storage/list_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/storage/list_note.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_get_note.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_get_note.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/notes/transport/gin_get_note_by_id.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/notes/transport/gin_get_note_by_id.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +18,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file:///usr/local/Homebrew/Cellar/go/1.14/libexec" />
+  <component name="GOROOT" url="file:///usr/local/Homebrew/Cellar/go/1.15.8/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -49,11 +43,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/module/notes/storage" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/module/notes/transport" />
       <recent name="$PROJECT_DIR$/module/notes/business" />
       <recent name="$PROJECT_DIR$/module/notes/model" />
-      <recent name="$PROJECT_DIR$/module/notes/storage" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />

@@ -4,6 +4,7 @@ import (
 	"gin-project/appctx"
 	"gin-project/middleware"
 	"gin-project/module/notes/transport"
+	"gin-project/module/upload/uploadtransport"
 	"gin-project/module/user/usertransport"
 	"github.com/gin-gonic/gin"
 )
@@ -16,6 +17,8 @@ func setUpRouter(r *gin.Engine, appCtx appctx.AppContext) {
 	v1.POST("/register", usertransport.RegisterUser(appCtx))
 	v1.POST("/login", usertransport.LoginUser(appCtx))
 	v1.GET("/getProfile", middleware.RequiredAuth(appCtx), usertransport.GetProfile(appCtx))
+
+	v1.POST("/upload", uploadtransport.Upload(appCtx))
 
 	notesApis := v1.Group("/notes", middleware.RequiredAuth(appCtx))
 	{
