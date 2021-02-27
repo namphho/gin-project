@@ -48,8 +48,8 @@ func Upload(appCtx appctx.AppContext) func(ctx *gin.Context){
 			panic(uploadmodel.ErrNoFileConfig)
 		}
 
-
-		fileName := fmt.Sprintf("%d%s", time.Now().Nanosecond(), filepath.Ext(fileHeader.Filename))
+		fileExt := filepath.Ext(fileHeader.Filename)
+		fileName := fmt.Sprintf("%d%s", time.Now().Nanosecond(), fileExt)
 
 		if err := ctx.SaveUploadedFile(fileHeader, fmt.Sprintf(LOCAL_STORAGE_IMAGE_PATH, fileName)); err != nil {
 			panic(common.ErrInvalidRequest(err))
@@ -59,8 +59,8 @@ func Upload(appCtx appctx.AppContext) func(ctx *gin.Context){
 			Url: fmt.Sprintf(FILE_UPLOAD_PATH, fileName),
 			Width: w,
 			Height: h,
-			CloudName: "",
-			Extension: "",
+			CloudName: "localhost",
+			Extension: fileExt,
 		}
 
 		ctx.JSON(http.StatusOK, gin.H{"status": resp})
