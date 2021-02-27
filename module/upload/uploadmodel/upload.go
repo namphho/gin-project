@@ -25,4 +25,9 @@ var (
 		errors.New("file is too large"),
 		"file is too large",
 		"ErrFileIsTooLarge")
+
+	ErrNoFileConfig = common.NewCustomError(
+		errors.New("can't decode file config"),
+		"can't decode file config",
+		"ErrDecodeFileConfig")
 )

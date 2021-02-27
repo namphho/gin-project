@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/module/upload/uploadmodel/upload.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/upload/uploadtransport/gin_upload.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/upload/uploadmodel/upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/upload/uploadmodel/upload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/upload/uploadtransport/gin_upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/upload/uploadtransport/gin_upload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/router.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

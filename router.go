@@ -28,4 +28,6 @@ func setUpRouter(r *gin.Engine, appCtx appctx.AppContext) {
 		notesApis.DELETE("/:note-id", transport.DeleteNote(appCtx))
 		notesApis.PUT("/:note-id", transport.UpdateNote(appCtx))
 	}
+
+	r.Static("/upload", "./temp")
 }
