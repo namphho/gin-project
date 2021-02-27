@@ -1,10 +1,12 @@
 package uploadtransport
 
 import (
+	"errors"
 	"fmt"
 	"gin-project/appctx"
 	"gin-project/common"
 	"gin-project/module/upload/uploadmodel"
+	"github.com/gabriel-vasile/mimetype"
 	"github.com/gin-gonic/gin"
 	"image"
 	_ "image/jpeg"
@@ -13,6 +15,7 @@ import (
 	"log"
 	"net/http"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
@@ -31,11 +34,20 @@ func Upload(appCtx appctx.AppContext) func(ctx *gin.Context){
 		if err != nil {
 			panic(common.ErrInvalidRequest(err))
 		}
+		defer file.Close()
 
-		w, h, err := GetImageDimension(file)
+		err = IsImage(file)
+		if err != nil {
+			panic(common.ErrInvalidRequest(err))
+		}
+
+		clientFile, _ := fileHeader.Open()
+		defer clientFile.Close()
+		w, h, err := GetImageDimension(clientFile)
 		if err != nil {
 			panic(uploadmodel.ErrNoFileConfig)
 		}
+
 
 		fileName := fmt.Sprintf("%d%s", time.Now().Nanosecond(), filepath.Ext(fileHeader.Filename))
 
@@ -58,8 +70,34 @@ func Upload(appCtx appctx.AppContext) func(ctx *gin.Context){
 func GetImageDimension(reader io.Reader) (int, int, error) {
 	config, _, err := image.DecodeConfig(reader)
 	if err != nil {
-		log.Printf("err: ", err)
+		log.Printf("err: %s", err.Error())
 		return 0, 0, err
 	}
 	return config.Width, config.Height, nil
+}
+
+//38:25
+func IsImage(reader io.Reader) error{
+	fileType, err := DetectFileType(reader)
+	if err != nil {
+		return err
+	}
+	isJpg := strings.Contains(fileType, "jpg")
+	isPng := strings.Contains(fileType, "png")
+	isJpeg := strings.Contains(fileType, "jpeg")
+
+	if !isJpg && !isPng && !isJpeg {
+		return errors.New("file is not image")
+	}
+	return nil
+
+}
+
+func DetectFileType(reader io.Reader) (string, error) {
+	mime, err := mimetype.DetectReader(reader)
+	if err != nil {
+		log.Printf(">>>>>>>err: ", err.Error())
+		return "", err
+	}
+	return mime.Extension(), nil
 }
