@@ -3,7 +3,7 @@ module gin-project
 go 1.14
 
 require (
-	github.com/aws/aws-sdk-go v1.37.20 // indirect
+	github.com/aws/aws-sdk-go v1.37.20
 	github.com/btcsuite/btcutil v1.0.2
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gabriel-vasile/mimetype v1.1.2

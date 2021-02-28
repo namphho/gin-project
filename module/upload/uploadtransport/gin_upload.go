@@ -1,11 +1,16 @@
 package uploadtransport
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
 	"gin-project/appctx"
 	"gin-project/common"
 	"gin-project/module/upload/uploadmodel"
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/credentials"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/gabriel-vasile/mimetype"
 	"github.com/gin-gonic/gin"
 	"image"
@@ -22,6 +27,13 @@ import (
 const FILE_UPLOAD_PATH = "http://localhost:8080/upload/%s"
 const LOCAL_STORAGE_IMAGE_PATH = "./temp/%s"
 
+
+//S3_BUCKET_NAME=g02-food-delivery;
+//S3_REGION=ap-southeast-1;
+//S3_API_KEY=AKIAWLDHV2FT2ZORCW2B;
+//S3_SECRET=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;
+//S3_DOMAIN=d124uuz544hfp3.cloudfront.net;
+
 func Upload(appCtx appctx.AppContext) func(ctx *gin.Context){
 	return func(ctx *gin.Context) {
 		fileHeader, err := ctx.FormFile("file")
@@ -34,16 +46,25 @@ func Upload(appCtx appctx.AppContext) func(ctx *gin.Context){
 		if err != nil {
 			panic(common.ErrInvalidRequest(err))
 		}
-		defer file.Close()
 
-		err = IsImage(file)
+		dataBytes := make([]byte, fileHeader.Size)
+		if _, err := file.Read(dataBytes); err != nil {
+			panic(common.ErrInvalidRequest(err))
+		}
+
+		_ = file.Close()
+
+		//create byte buffer
+		fileBytes := bytes.NewBuffer(dataBytes)
+
+		//check file is image or note
+		err = IsImage(fileBytes)
 		if err != nil {
 			panic(common.ErrInvalidRequest(err))
 		}
 
-		clientFile, _ := fileHeader.Open()
-		defer clientFile.Close()
-		w, h, err := GetImageDimension(clientFile)
+		//get dimension
+		w, h, err := GetImageDimension(bytes.NewBuffer(dataBytes))
 		if err != nil {
 			panic(uploadmodel.ErrNoFileConfig)
 		}
@@ -51,8 +72,31 @@ func Upload(appCtx appctx.AppContext) func(ctx *gin.Context){
 		fileExt := filepath.Ext(fileHeader.Filename)
 		fileName := fmt.Sprintf("%d%s", time.Now().Nanosecond(), fileExt)
 
-		if err := ctx.SaveUploadedFile(fileHeader, fmt.Sprintf(LOCAL_STORAGE_IMAGE_PATH, fileName)); err != nil {
-			panic(common.ErrInvalidRequest(err))
+		//if err := ctx.SaveUploadedFile(fileHeader, fmt.Sprintf(LOCAL_STORAGE_IMAGE_PATH, fileName)); err != nil {
+		//	panic(common.ErrInvalidRequest(err))
+		//}
+
+		//upload to s3
+		//create a single AWS session (we can re use this if we're uploading many files)
+		mySession, err := session.NewSession(&aws.Config{
+			Region: aws.String("ap-southeast-1"),
+			Credentials: credentials.NewStaticCredentials(
+				"",
+				"",
+				"",
+				),
+		})
+
+		_ , err = s3.New(mySession).PutObject(&s3.PutObjectInput{
+			Bucket: aws.String("g02-food-delivery"),
+			Key: aws.String(fileName),
+			ACL: aws.String("private"),
+			Body: bytes.NewReader(dataBytes),
+			ContentLength: aws.Int64(fileHeader.Size),
+		})
+
+		if err != nil {
+			panic(common.ErrInvalidRequest(errors.New("can't now upload")))
 		}
 
 		resp := common.Image{
@@ -76,7 +120,7 @@ func GetImageDimension(reader io.Reader) (int, int, error) {
 	return config.Width, config.Height, nil
 }
 
-//38:25
+
 func IsImage(reader io.Reader) error{
 	fileType, err := DetectFileType(reader)
 	if err != nil {
