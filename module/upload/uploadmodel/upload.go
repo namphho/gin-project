@@ -31,3 +31,15 @@ var (
 		"can't decode file config",
 		"ErrDecodeFileConfig")
 )
+
+func ErrCannotSaveFile(err error) *common.AppError{
+	return common.NewCustomError(err,
+		"cannot save uploaded file",
+		"ErrCannotSaveFile")
+}
+
+func ErrFileIsNotImage(err error) *common.AppError{
+	return common.NewCustomError(err,
+		"file is not image",
+		"ErrFileIsNotImage")
+}

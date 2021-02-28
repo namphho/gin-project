@@ -1,27 +1,36 @@
 package appctx
 
-import "gorm.io/gorm"
+import (
+	"gin-project/appctx/uploadprovider"
+	"gorm.io/gorm"
+)
 
 type AppContext interface {
 	GetDBConnection() *gorm.DB
 	SecretKey() string
+	UploadProvider() uploadprovider.UploadProvider
 }
 
 type appContext struct {
-	db        *gorm.DB
-	secretKey string
+	db             *gorm.DB
+	secretKey      string
+	uploadProvider uploadprovider.UploadProvider
 }
 
-func NewInstance(db *gorm.DB, secretKey string) *appContext {
-	return &appContext{db: db, secretKey: secretKey}
+func NewInstance(db *gorm.DB, secretKey string, uploadProvider uploadprovider.UploadProvider) *appContext {
+	return &appContext{db: db, secretKey: secretKey, uploadProvider: uploadProvider}
 }
 
 func (appCtx *appContext) GetDBConnection() *gorm.DB {
 	return appCtx.db.Session(&gorm.Session{NewDB: true})
 }
 
-func (appCtx *appContext) SecretKey() string{
+func (appCtx *appContext) SecretKey() string {
 	return appCtx.secretKey
+}
+
+func (appCtx *appContext) UploadProvider() uploadprovider.UploadProvider{
+	return appCtx.uploadProvider
 }
 
 type tokenExpiry struct {

@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="" />
+    <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/appctx/uploadprovider/s3_provider.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appctx/uploadprovider/upload_provider.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/upload/uploadbusiness/upload_use_case.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appctx/app_ctx.go" beforeDir="false" afterPath="$PROJECT_DIR$/appctx/app_ctx.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/upload/uploadmodel/upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/upload/uploadmodel/upload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/upload/uploadtransport/gin_upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/upload/uploadtransport/gin_upload.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +67,11 @@
       <envs>
         <env name="DB_CONNECTION_STRING" value="hnam:12345678@tcp(127.0.0.1:3307)/HNAM_DB?charset=utf8mb4&amp;parseTime=True&amp;loc=Local" />
         <env name="SECRET_KEY" value="ABC_HNAM" />
+        <env name="S3_BUCKET_NAME" value="g02-food-delivery" />
+        <env name="S3_REGION" value="ap-southeast-1" />
+        <env name="S3_API_KEY" value="AKIAWLDHV2FT2ZORCW2B" />
+        <env name="S3_SECRET" value="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" />
+        <env name="S3_DOMAIN" value="d124uuz544hfp3.cloudfront.net" />
       </envs>
       <kind value="DIRECTORY" />
       <filePath value="$PROJECT_DIR$/../gin-project|$PROJECT_DIR$" />
