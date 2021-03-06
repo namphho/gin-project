@@ -17,12 +17,17 @@ import (
 	"time"
 )
 
-type UploadUseCase struct {
-	provider uploadprovider.UploadProvider
+type CreateImageStorage interface {
+	CreateImage(context context.Context, data *common.Image) error
 }
 
-func NewUploadUseCase(provider uploadprovider.UploadProvider) *UploadUseCase {
-	return &UploadUseCase{provider: provider}
+type UploadUseCase struct {
+	provider uploadprovider.UploadProvider
+	imgStore CreateImageStorage
+}
+
+func NewUploadUseCase(provider uploadprovider.UploadProvider, imgStore CreateImageStorage) *UploadUseCase {
+	return &UploadUseCase{provider: provider, imgStore: imgStore}
 }
 
 func (usecase *UploadUseCase) Upload(ctx context.Context, data []byte, folder, fileName string) (*common.Image, error) {
@@ -52,6 +57,10 @@ func (usecase *UploadUseCase) Upload(ctx context.Context, data []byte, folder, f
 	img.Width = w
 	img.Height = h
 	img.Extension = fileExt
+
+	if err := usecase.imgStore.CreateImage(ctx, img); err != nil {
+		return nil, uploadmodel.ErrCannotSaveFile(err)
+	}
 
 	return img, nil
 }

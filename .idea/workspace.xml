@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1564a0f-b1e4-4c8d-b92f-35c63d0390ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/appctx/uploadprovider/s3_provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appctx/uploadprovider/upload_provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/upload/uploadbusiness/upload_use_case.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/upload/uploadstore/create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/upload/uploadstore/store.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appctx/app_ctx.go" beforeDir="false" afterPath="$PROJECT_DIR$/appctx/app_ctx.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/upload/uploadmodel/upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/upload/uploadmodel/upload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/image.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/image.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/upload/uploadbusiness/upload_use_case.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/upload/uploadbusiness/upload_use_case.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/upload/uploadtransport/gin_upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/module/upload/uploadtransport/gin_upload.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +43,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/module/notes/storage" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
